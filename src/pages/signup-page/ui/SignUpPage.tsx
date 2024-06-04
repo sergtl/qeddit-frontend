@@ -14,7 +14,7 @@ import Link from "next/link";
 export function SignUpPage() {
   return (
     <Layout>
-      <Card className="mx-auto max-w-sm">
+      <Card className="w-96">
         <CardHeader>
           <CardTitle className="text-xl">Sign Up</CardTitle>
           <CardDescription>
@@ -23,16 +23,6 @@ export function SignUpPage() {
         </CardHeader>
         <CardContent>
           <div className="grid gap-4">
-            {/* <div className="grid grid-cols-2 gap-4">
-              <div className="grid gap-2">
-                <Label htmlFor="first-name">First name</Label>
-                <Input id="first-name" placeholder="Max" required />
-              </div>
-              <div className="grid gap-2">
-                <Label htmlFor="last-name">Last name</Label>
-                <Input id="last-name" placeholder="Robinson" required />
-              </div>
-            </div> */}
             <div className="grid gap-2">
               <Label htmlFor="username">Username</Label>
               <Input id="username" placeholder="username" required />
@@ -53,9 +43,6 @@ export function SignUpPage() {
             <Button type="submit" className="w-full">
               Create an account
             </Button>
-            {/* <Button variant="outline" className="w-full">
-              Sign up with GitHub
-            </Button> */}
           </div>
           <div className="mt-4 text-center text-sm">
             Already have an account?{" "}
