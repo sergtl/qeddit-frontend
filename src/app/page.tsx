@@ -1,3 +1,3 @@
 export default function Home() {
-  return <h1>Qeddit (aka yet another reddit clone)</h1>;
+  return <h1>Home page</h1>;
 }
