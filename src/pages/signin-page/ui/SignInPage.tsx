@@ -1,5 +1,5 @@
-import { Button } from "@/shared/ui/button";
 import {
+  Button,
   Card,
   CardContent,
   CardDescription,
