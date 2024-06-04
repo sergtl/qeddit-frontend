@@ -3,7 +3,7 @@ import { Inter as FontSans } from "next/font/google";
 
 import { cn } from "@/lib/utils";
 import "./globals.css";
-import { TanStackProvider } from "./_tanstack-query/TanStackProvider";
+import { QueryProvider } from "./_providers/QueryProvider";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -27,7 +27,7 @@ export default function RootLayout({
           fontSans.variable
         )}
       >
-        <TanStackProvider>{children}</TanStackProvider>
+        <QueryProvider>{children}</QueryProvider>
       </body>
     </html>
   );
