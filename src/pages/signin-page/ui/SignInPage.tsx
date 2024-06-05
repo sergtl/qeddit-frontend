@@ -1,6 +1,6 @@
 "use client";
 
-import { LoginForm } from "@/features/sign-in-form/ui/LoginForm";
+import { LoginForm } from "@/features/sign-in-form";
 import { Layout } from "@/shared/ui";
 
 export function SignInPage() {
