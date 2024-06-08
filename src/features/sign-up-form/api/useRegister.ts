@@ -2,6 +2,7 @@ import { z } from "zod";
 import { useMutation } from "@tanstack/react-query";
 import { registerFormSchema } from "../model/useRegisterForm";
 import { API_URL } from "@/shared/config";
+import axios from "axios";
 
 export function useRegister() {
   const {
@@ -9,15 +10,20 @@ export function useRegister() {
     data,
     isPending: loading,
   } = useMutation({
-    mutationFn: (registerData: z.infer<typeof registerFormSchema>) => {
-      return fetch(`${API_URL}/auth/register`, {
-        method: "POST",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
+    mutationKey: ["register"],
+    mutationFn: async (registerData: z.infer<typeof registerFormSchema>) => {
+      const response = await axios({
+        url: `${API_URL}/auth/login`,
+        method: "post",
+        data: {
+          ...registerData,
         },
-        body: JSON.stringify(registerData),
       });
+
+      return response;
+    },
+    onSuccess: (data) => {
+      // save accessToken in localStorage
     },
   });
 

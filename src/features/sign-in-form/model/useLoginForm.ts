@@ -20,8 +20,6 @@ export function useLoginForm() {
     login(values);
   };
 
-  console.log("data", data);
-
   return {
     form,
     onSubmit,

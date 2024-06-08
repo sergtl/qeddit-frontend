@@ -61,7 +61,11 @@ export function RegisterForm() {
                   render={({ field }) => (
                     <FormItem>
                       <FormLabel>Email</FormLabel>
-                      <Input placeholder="password" {...field} />
+                      <Input
+                        placeholder="password"
+                        type="password"
+                        {...field}
+                      />
                     </FormItem>
                   )}
                 />
