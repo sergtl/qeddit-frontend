@@ -16,7 +16,6 @@ export function useLoginForm() {
   const { login, data, loading } = useLogin();
 
   const onSubmit = (values: z.infer<typeof loginFormSchema>) => {
-    console.log("login form values", values);
     login(values);
   };
 

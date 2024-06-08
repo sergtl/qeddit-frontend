@@ -11,7 +11,6 @@ export async function middleware(request: NextRequest) {
       currentPath !== "/sign-up" &&
       currentPath !== "/sign-in"
     ) {
-      console.log("!accessToken - redirect to sign in");
       return NextResponse.redirect(new URL("/sign-in", request.url));
     }
   } else {

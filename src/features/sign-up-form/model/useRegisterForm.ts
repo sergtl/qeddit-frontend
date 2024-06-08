@@ -17,7 +17,6 @@ export function useRegisterForm() {
   const { register, data, loading } = useRegister();
 
   const onSubmit = (values: z.infer<typeof registerFormSchema>) => {
-    console.log("register form values", values);
     register(values);
   };
 
