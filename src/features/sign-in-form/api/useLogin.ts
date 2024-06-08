@@ -1,10 +1,12 @@
-import { API_URL } from "@/shared/config";
+import { axiosClient } from "@/shared/api";
 import { useMutation } from "@tanstack/react-query";
-import axios from "axios";
+import { useRouter } from "next/navigation";
 import { z } from "zod";
 import { loginFormSchema } from "../model/useLoginForm";
 
 export function useLogin() {
+  const router = useRouter();
+
   const {
     mutate: login,
     data,
@@ -12,8 +14,8 @@ export function useLogin() {
   } = useMutation({
     mutationKey: ["login"],
     mutationFn: async (loginData: z.infer<typeof loginFormSchema>) => {
-      const response = await axios({
-        url: `${API_URL}/auth/login`,
+      const response = await axiosClient({
+        url: "/auth/login",
         method: "post",
         data: {
           ...loginData,
@@ -23,7 +25,8 @@ export function useLogin() {
       return response;
     },
     onSuccess: (data) => {
-      // save accessToken in localStorage
+      localStorage.setItem("accessToken", data.data.accessToken);
+      router.replace("/");
     },
   });
 
